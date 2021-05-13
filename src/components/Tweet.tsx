@@ -16,7 +16,7 @@ import Image from "next/image";
 
 export default function Tweet() {
     return (
-        <div className="flex space-x-3 border-b border-grayBorder px-4 py-4 hover:bg-black hover:bg-opacity-20 cursor-pointer">
+        <div className="flex space-x-3 border-b dark:border-grayBorder px-4 py-4 dark:hover:bg-black dark:hover:bg-opacity-20 hover:bg-gray-100 cursor-pointer transition duration-150 ease-out">
             {" "}
             <img
                 src="https://pbs.twimg.com/profile_images/1095765031206248448/xaYbtnVQ_x96.png"
@@ -30,7 +30,7 @@ export default function Tweet() {
                         <span>Anthony Zink</span>
                         <FontAwesomeIcon
                             icon={faCheckCircle}
-                            className="h-4 w-4"
+                            className="h-4 w-4 text-blue-400 dark:text-gray-200"
                         />
                         <div className="text-gray-500 text-sm space-x-1 font-normal">
                             <span>@AnthonyZink11</span>

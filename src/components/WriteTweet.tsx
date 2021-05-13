@@ -23,7 +23,7 @@ export default function WriteTweet() {
                         placeholder="Quoi de neuf ?"
                         className="w-full dark:bg-gray-900 resize-y overflow-hidden text-xl placeholder-gray-500 py-2 outline-none h-auto"
                     ></textarea>
-                    <div className="border-b border-grayBorder w-full">
+                    <div className="border-b dark:border-grayBorder w-full">
                         <div className="text-blue-400 inline-flex text-sm space-x-2 font-semibold pb-3 cursor-pointer">
                             <FontAwesomeIcon
                                 icon={faGlobeEurope}
@@ -60,7 +60,7 @@ export default function WriteTweet() {
                             />
                         </div>
                     </div>
-                    <div className="px-4 h-10 flex items-center rounded-full font-bold cursor-pointer transition-colors duration-150 ease-out  bg-blue-400 hover:bg-blue-500">
+                    <div className="px-4 h-10 flex items-center rounded-full font-bold cursor-pointer transition-colors duration-150 ease-out text-white bg-blue-400 hover:bg-blue-500">
                         Tweet
                     </div>
                 </div>

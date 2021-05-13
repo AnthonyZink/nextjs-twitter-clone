@@ -5,18 +5,18 @@ import Menu from "./Menu";
 
 const Sidebar = () => {
     return (
-        <div className="h-screen sticky top-0  flex justify-end bg-gray-200 dark:bg-gray-900 border-gray-500">
+        <div className="h-screen sticky top-0  flex justify-end ">
             <div className=" h-full px-4 py-2 flex flex-col justify-between">
                 <div className=" space-y-2 ">
                     <div className="p-2">
                         <FontAwesomeIcon
                             icon={faTwitter}
-                            className="h-7 w-7 dark:text-gray-200 cursor-pointer"
+                            className="h-7 w-7 dark:text-gray-200 text-blue-400 cursor-pointer"
                         />
                     </div>
                     <Menu />
 
-                    <div className="w-60 cursor-pointer transition-colors duration-150 ease-out  bg-blue-400 hover:bg-blue-500 capitalize font-bold text-gray-200 py-3 rounded-full text-center">
+                    <div className="w-60 cursor-pointer transition-colors duration-150 ease-out  bg-blue-400 hover:bg-blue-500 capitalize font-bold text-white py-3 rounded-full text-center">
                         tweet
                     </div>
                 </div>

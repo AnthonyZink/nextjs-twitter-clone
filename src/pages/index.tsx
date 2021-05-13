@@ -14,7 +14,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className="flex bg-gray-200 dark:bg-gray-900">
+            <main className="flex justify-center bg-white dark:bg-gray-900">
                 <Sidebar />
 
                 <Tweets />
