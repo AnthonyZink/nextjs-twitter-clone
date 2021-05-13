@@ -5,7 +5,7 @@ import Menu from "./Menu";
 
 const Sidebar = () => {
     return (
-        <div className="w-96 h-screen sticky top-0  flex justify-end bg-gray-200 dark:bg-gray-900 border-gray-500">
+        <div className="h-screen sticky top-0  flex justify-end bg-gray-200 dark:bg-gray-900 border-gray-500">
             <div className=" h-full px-4 py-2 flex flex-col justify-between">
                 <div className=" space-y-2 ">
                     <div className="p-2">
