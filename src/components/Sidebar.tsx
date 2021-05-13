@@ -1,12 +1,12 @@
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisH, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from "./Menu";
 
 const Sidebar = () => {
     return (
-        <div className="h-screen sticky top-0  flex justify-end ">
-            <div className=" h-full px-4 py-2 flex flex-col justify-between">
+        <div className="h-screen sticky top-0  flex justify-end max-w-60 ">
+            <div className=" h-full px-4 py-2 flex flex-col justify-between items-center">
                 <div className=" space-y-2 ">
                     <div className="p-2">
                         <FontAwesomeIcon
@@ -16,8 +16,12 @@ const Sidebar = () => {
                     </div>
                     <Menu />
 
-                    <div className="w-60 cursor-pointer transition-colors duration-150 ease-out  bg-blue-400 hover:bg-blue-500 capitalize font-bold text-white py-3 rounded-full text-center">
+                    <div className="cursor-pointer transition-colors duration-150 ease-out hidden xl:block bg-blue-400 hover:bg-blue-500 capitalize font-bold text-white py-3 rounded-full text-center">
                         tweet
+                    </div>
+
+                    <div className=" cursor-pointer transition-colors duration-150 ease-out xl:hidden inline-flex bg-blue-400 hover:bg-blue-500 capitalize font-bold text-white p-3 rounded-full text-center">
+                        <FontAwesomeIcon icon={faPlus} className="h-5 w-5" />
                     </div>
                 </div>
 
@@ -29,7 +33,7 @@ const Sidebar = () => {
                             alt=""
                             className="rounded-full h-10 w-10"
                         />
-                        <div>
+                        <div className="hidden xl:block">
                             <div className="dark:text-gray-200 text-gray-800">
                                 Anthony Zink
                             </div>
@@ -40,7 +44,7 @@ const Sidebar = () => {
                     </div>
                     <FontAwesomeIcon
                         icon={faEllipsisH}
-                        className="dark:text-gray-200 text-gray-800 h-3"
+                        className="dark:text-gray-200 text-gray-800 h-3 hidden xl:block"
                     />
                 </div>
             </div>

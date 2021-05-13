@@ -5,7 +5,7 @@ import TrendAsset from "./TrendAsset";
 import SuggestionAsset from "./SuggestionAsset";
 const Assets = () => {
     return (
-        <div className="w-96 h-screen sticky top-0 px-7 py-2 space-y-4 dark:text-gray-200">
+        <div className="w-96 h-screen sticky top-0 px-7 py-2 space-y-4 dark:text-gray-200 hidden lg:block">
             <SearchTweet />
 
             <div className="bg-gray-100 dark:bg-white dark:bg-opacity-5 rounded-2xl">
