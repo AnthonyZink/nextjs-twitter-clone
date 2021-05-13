@@ -15,7 +15,7 @@ import MenuItem from "./MenuItem";
 const Menu = () => {
     return (
         <div className="space-y-3 flex flex-col">
-            <MenuItem title="accueil" icon={faHome} />
+            <MenuItem title="accueil" icon={faHome} active />
             <MenuItem title="explorer" icon={faHashtag} />
             <MenuItem title="notifications" icon={faBell} />
             <MenuItem title="Messages" icon={faEnvelope} />

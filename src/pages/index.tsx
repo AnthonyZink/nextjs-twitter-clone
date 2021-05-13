@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Tweets from "../components/Tweets";
+import Assets from "../components/Assets";
 
 export default function Home() {
     return (
@@ -18,9 +19,7 @@ export default function Home() {
 
                 <Tweets />
 
-                <div className="w-96 h-screen sticky top-0   text-gray-200">
-                    todo
-                </div>
+                <Assets />
             </main>
         </div>
     );
