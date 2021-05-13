@@ -6,8 +6,42 @@ import {
     faStream,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CircularProgressBar from "./CircularProgressBar";
+import { useState } from "react";
+import classNames from "classnames";
 
 export default function WriteTweet() {
+    const [charactersValue, setCharactersValue] = useState("0");
+    const [tweetButtonDisabled, setTweetButtonDisabled] = useState(true);
+
+    const checkCharacterCount = (characters) => {
+        return {
+            count: characters.length,
+            overflow: characters.length - 280 > 0 ? characters.length - 280 : 0,
+        };
+    };
+
+    const handleChange = ({ target }) => {
+        target.style.height = target.scrollHeight + "px";
+        const { count, overflow } = checkCharacterCount(target.value);
+
+        // Si on a un overflow ou qu'on a 0 caractères on disabled le bouton de tweet
+        if ((overflow > 0 && !tweetButtonDisabled) || count === 0) {
+            setTweetButtonDisabled(true);
+        } else if (tweetButtonDisabled && overflow <= 0) {
+            setTweetButtonDisabled(false);
+        }
+
+        setCharactersValue(count);
+    };
+
+    const tweetButtonClasses = classNames({
+        "px-4 h-10 flex items-center justify-center rounded-full font-bold cursor-pointer transition-colors duration-150 ease-out text-white bg-blue-400 hover:bg-blue-500 ":
+            true,
+        "disabled:hover:bg-blue-400 disabled:opacity-50 disabled:cursor-default":
+            tweetButtonDisabled,
+    });
+
     return (
         <div className="px-4 py-2 dark:text-gray-200 flex space-x-5">
             <div className="flex">
@@ -20,8 +54,9 @@ export default function WriteTweet() {
             <div className="flex-grow">
                 <div>
                     <textarea
+                        onChange={handleChange}
                         placeholder="Quoi de neuf ?"
-                        className="w-full dark:bg-gray-900 resize-y overflow-hidden text-xl placeholder-gray-500 py-2 outline-none h-auto"
+                        className="w-full dark:bg-gray-900 resize-none overflow-hidden text-xl placeholder-gray-500 py-2 outline-none h-auto"
                     ></textarea>
                     <div className="border-b dark:border-grayBorder w-full">
                         <div className="text-blue-400 inline-flex text-sm space-x-2 font-semibold pb-3 cursor-pointer">
@@ -60,8 +95,18 @@ export default function WriteTweet() {
                             />
                         </div>
                     </div>
-                    <div className="px-4 h-10 flex items-center rounded-full font-bold cursor-pointer transition-colors duration-150 ease-out text-white bg-blue-400 hover:bg-blue-500">
-                        Tweet
+                    <div className="flex items-center space-x-2">
+                        {parseInt(charactersValue) > 0 && (
+                            <CircularProgressBar
+                                sqSize="30"
+                                strokeWidth="2"
+                                max="280"
+                                value={charactersValue}
+                            />
+                        )}
+                        <button disabled className={tweetButtonClasses}>
+                            Tweet
+                        </button>
                     </div>
                 </div>
             </div>
