@@ -8,6 +8,8 @@ import {
     faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 
+import Link from "next/link";
+
 export default function Tweet() {
     return (
         <div className="flex space-x-3 border-b dark:border-grayBorder px-4 py-4 dark:hover:bg-black dark:hover:bg-opacity-20 hover:bg-gray-100 cursor-pointer transition duration-150 ease-out">
@@ -19,19 +21,24 @@ export default function Tweet() {
             />
             <div className="dark:text-gray-200 text-gray-800 space-y-2">
                 {/* Header */}
-                <div className="flex justify-between">
-                    <div className="flex items-center space-x-1 font-semibold">
-                        <span>Anthony Zink</span>
-                        <FontAwesomeIcon
-                            icon={faCheckCircle}
-                            className="h-4 w-4 text-blue-400 dark:text-gray-200"
-                        />
-                        <div className="text-gray-500 text-sm space-x-1 font-normal">
-                            <span>@AnthonyZink11</span>
-                            <span>·</span>
-                            <span>18 min</span>
-                        </div>
-                    </div>
+                <div className="flex justify-between group">
+                    <Link href="/AnthonyZink11">
+                        <a className="flex items-center space-x-1 font-semibold">
+                            <span className="group-hover:underline">
+                                Anthony Zink
+                            </span>
+                            <FontAwesomeIcon
+                                icon={faCheckCircle}
+                                className="h-4 w-4 text-blue-400 dark:text-gray-200"
+                            />
+                            <div className="text-gray-500 text-sm space-x-1 font-normal">
+                                <span>@AnthonyZink11</span>
+                                <span>·</span>
+                                <span>18 min</span>
+                            </div>
+                        </a>
+                    </Link>
+
                     <FontAwesomeIcon
                         icon={faEllipsisH}
                         className="h-4 w-4 text-gray-500"

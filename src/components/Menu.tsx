@@ -18,7 +18,7 @@ const Menu = () => {
             <MenuItem title="notifications" icon={faBell} />
             <MenuItem title="Messages" icon={faEnvelope} />
             <MenuItem title="Signet" icon={faBookmark} />
-            <MenuItem title="Lists" icon={faListAlt} />
+            <MenuItem title="Listes" icon={faListAlt} />
             <MenuItem title="Profil" icon={faUser} />
             <MenuItem title="plus" icon={faEllipsisH} />
         </div>

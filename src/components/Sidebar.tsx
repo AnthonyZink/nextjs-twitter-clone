@@ -26,7 +26,7 @@ const Sidebar = () => {
                 </div>
 
                 {/* User */}
-                <div className="flex items-center justify-between transition duration-150 ease-out hover:bg-blue-500 hover:bg-opacity-5 cursor-pointer rounded-full p-3">
+                <div className=" space-x-6 flex items-center justify-between transition duration-150 ease-out hover:bg-blue-500 hover:bg-opacity-5 cursor-pointer rounded-full">
                     <div className="flex space-x-3 items-center">
                         <img
                             src="https://pbs.twimg.com/profile_images/1095765031206248448/xaYbtnVQ_x96.png"
@@ -34,7 +34,7 @@ const Sidebar = () => {
                             className="rounded-full h-10 w-10"
                         />
                         <div className="hidden xl:block">
-                            <div className="dark:text-gray-200 text-gray-800">
+                            <div className="dark:text-gray-200 text-gray-800 font-bold">
                                 Anthony Zink
                             </div>
                             <div className="text-gray-500 text-md">

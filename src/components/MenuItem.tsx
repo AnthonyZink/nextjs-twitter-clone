@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
+import Link from "next/link";
 
 const MenuItem = ({ title, icon, active = false }) => {
     var btnClass = classNames({
@@ -9,10 +10,12 @@ const MenuItem = ({ title, icon, active = false }) => {
     });
 
     return (
-        <div className={btnClass}>
-            <FontAwesomeIcon icon={icon} className="h-6 w-6" />
-            <div className="text-xl hidden xl:block">{title}</div>
-        </div>
+        <Link href="/">
+            <a className={btnClass}>
+                <FontAwesomeIcon icon={icon} className="h-6 w-6" />
+                <div className="text-xl hidden xl:block">{title}</div>
+            </a>
+        </Link>
     );
 };
 
