@@ -1,17 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tweet from "./Tweet";
 
-import {
-    faCalendarAlt,
-    faCameraRetro,
-    faGlobeEurope,
-    faGrin,
-    faGrinAlt,
-    faImage,
-    faStar,
-    faStream,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import WriteTweet from "./WriteTweet";
+
 const Tweets = () => {
     return (
         <div className="flex-1 dark:border-grayBorder border-r border-l max-w-xl">

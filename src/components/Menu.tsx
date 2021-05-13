@@ -1,4 +1,3 @@
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
     faBell,
     faBookmark,
@@ -9,7 +8,6 @@ import {
     faListAlt,
     faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MenuItem from "./MenuItem";
 
 const Menu = () => {

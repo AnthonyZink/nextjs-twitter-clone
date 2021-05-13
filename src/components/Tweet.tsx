@@ -2,17 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCheckCircle,
     faComment,
-    faCommentAlt,
     faEllipsisH,
     faHeart,
     faRandom,
-    faRetweet,
-    faShare,
-    faShareAltSquare,
-    faShareSquare,
     faUpload,
 } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
 
 export default function Tweet() {
     return (

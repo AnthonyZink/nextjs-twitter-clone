@@ -1,5 +1,3 @@
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const SuggestionAsset = () => {
     return (
         <div className="py-3 px-4 border-b dark:border-grayBorder flex items-center space-x-3 dark:hover:bg-gray-900 dark:hover:bg-opacity-10 hover:bg-gray-200 cursor-pointer transition duration-150 ease-out">
