@@ -23,6 +23,9 @@ const resolvers = {
                     userId,
                     content,
                 },
+                include: {
+                    user: true,
+                },
             });
         },
     },

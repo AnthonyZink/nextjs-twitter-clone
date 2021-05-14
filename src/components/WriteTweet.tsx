@@ -12,7 +12,7 @@ import classNames from "classnames";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
 
-export default function WriteTweet() {
+export default function WriteTweet({ addTweetParent }) {
     const [charactersValue, setCharactersValue] = useState("0");
     const [tweetButtonDisabled, setTweetButtonDisabled] = useState(true);
     const [tweetContent, setTweetContent] = useState("");
@@ -21,6 +21,12 @@ export default function WriteTweet() {
         mutation addTweet($content: String, $userId: String) {
             addTweet(content: $content, userId: $userId) {
                 id
+                content
+                user {
+                    twitterId
+                    username
+                }
+                createdAt
             }
         }
     `;
@@ -28,12 +34,13 @@ export default function WriteTweet() {
     const [addTweet, { data }] = useMutation(addTweetQuery);
 
     const handleClick = async () => {
-        await addTweet({
+        const tweet = await addTweet({
             variables: {
                 content: tweetContent,
                 userId: "b98fe261-30e1-4f16-b741-efe55923404e",
             },
         });
+        addTweetParent(tweet.data.addTweet);
 
         setTweetContent("");
     };
