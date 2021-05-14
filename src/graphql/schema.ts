@@ -22,6 +22,9 @@ const typeDefs = gql`
     type Query {
         tweets: [Tweet]
     }
+    type Mutation {
+        addTweet(content: String, userId: String): Tweet
+    }
 `;
 
 export default typeDefs;

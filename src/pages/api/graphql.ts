@@ -11,6 +11,18 @@ const resolvers = {
                 include: {
                     user: true,
                 },
+                orderBy: [{ createdAt: "desc" }],
+            });
+        },
+    },
+
+    Mutation: {
+        addTweet: async function (_, { userId, content }) {
+            return await prisma.tweet.create({
+                data: {
+                    userId,
+                    content,
+                },
             });
         },
     },

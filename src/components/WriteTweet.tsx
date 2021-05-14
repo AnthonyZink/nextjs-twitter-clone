@@ -9,10 +9,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CircularProgressBar from "./CircularProgressBar";
 import { useState } from "react";
 import classNames from "classnames";
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/client";
 
 export default function WriteTweet() {
     const [charactersValue, setCharactersValue] = useState("0");
     const [tweetButtonDisabled, setTweetButtonDisabled] = useState(true);
+    const [tweetContent, setTweetContent] = useState("");
+
+    const addTweetQuery = gql`
+        mutation addTweet($content: String, $userId: String) {
+            addTweet(content: $content, userId: $userId) {
+                id
+            }
+        }
+    `;
+
+    const [addTweet, { data }] = useMutation(addTweetQuery);
+
+    const handleClick = async () => {
+        await addTweet({
+            variables: {
+                content: tweetContent,
+                userId: "b98fe261-30e1-4f16-b741-efe55923404e",
+            },
+        });
+
+        setTweetContent("");
+    };
 
     const checkCharacterCount = (characters) => {
         return {
@@ -24,6 +48,7 @@ export default function WriteTweet() {
     const handleChange = ({ target }) => {
         target.style.height = target.scrollHeight + "px";
         const { count, overflow } = checkCharacterCount(target.value);
+        setTweetContent(target.value);
 
         // Si on a un overflow ou qu'on a 0 caractères on disabled le bouton de tweet
         if ((overflow > 0 && !tweetButtonDisabled) || count === 0) {
@@ -55,6 +80,7 @@ export default function WriteTweet() {
                 <div>
                     <textarea
                         onChange={handleChange}
+                        value={tweetContent}
                         placeholder="Quoi de neuf ?"
                         className="w-full dark:bg-gray-900 resize-none overflow-hidden text-xl placeholder-gray-500 py-2 outline-none h-auto"
                     ></textarea>
@@ -104,7 +130,11 @@ export default function WriteTweet() {
                                 value={charactersValue}
                             />
                         )}
-                        <button disabled className={tweetButtonClasses}>
+                        <button
+                            disabled={tweetButtonDisabled}
+                            className={tweetButtonClasses}
+                            onClick={handleClick}
+                        >
                             Tweet
                         </button>
                     </div>
