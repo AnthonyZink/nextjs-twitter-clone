@@ -35,7 +35,7 @@ const Tweets = ({ tweets }) => {
             <div className="h-3 dark:bg-gray-800 bg-gray-100 dark:border-grayBorder border-t border-b"></div>
 
             <div className="flex">
-                <div className="flex-1">
+                <div className="w-full">
                     {tweetsArray?.map((tweet) => (
                         <Tweet key={tweet.id} tweet={tweet} />
                     ))}

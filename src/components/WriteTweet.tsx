@@ -43,6 +43,8 @@ export default function WriteTweet({ addTweetParent }) {
         addTweetParent(tweet.data.addTweet);
 
         setTweetContent("");
+        setTweetButtonDisabled(true);
+        setCharactersValue("0");
     };
 
     const checkCharacterCount = (characters) => {

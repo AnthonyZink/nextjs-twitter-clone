@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function Tweet({ tweet }) {
     return (
-        <div className="flex space-x-3 border-b dark:border-grayBorder px-4 py-4 dark:hover:bg-black dark:hover:bg-opacity-20 hover:bg-gray-100 cursor-pointer transition duration-150 ease-out">
+        <div className="flex space-x-3 border-b dark:border-grayBorder px-4 py-4 dark:hover:bg-black dark:hover:bg-opacity-20 hover:bg-gray-100 cursor-pointer transition duration-150 ease-out w-full">
             {" "}
             <img
                 src="https://pbs.twimg.com/profile_images/1095765031206248448/xaYbtnVQ_x96.png"
