@@ -7,21 +7,20 @@ const typeDefs = gql`
         password: String!
         createdAt: String
         updatedAt: String
+        username: String!
+        twitterId: String!
     }
 
-    type UserPayload {
-        token: String!
+    type Tweet {
+        id: ID!
+        content: String
         user: User
+        createdAt: String
+        updatedAt: String
     }
 
     type Query {
-        users: [User]
-        user(email: String!): User
-        logIn(email: String!, password: String!): UserPayload
-    }
-
-    type Mutation {
-        createUser(email: String!, password: String!): User
+        tweets: [Tweet]
     }
 `;
 

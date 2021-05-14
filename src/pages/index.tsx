@@ -1,12 +1,27 @@
 import Head from "next/head";
 import Sidebar from "../components/Sidebar";
-import styles from "../styles/Home.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Tweets from "../components/Tweets";
 import Assets from "../components/Assets";
+import { gql, useQuery } from "@apollo/client";
 
 export default function Home() {
+    const query = gql`
+        query TweetsQuery {
+            tweets {
+                id
+                content
+                user {
+                    twitterId
+                    username
+                }
+                createdAt
+                updatedAt
+            }
+        }
+    `;
+
+    const { data, loading, error } = useQuery(query);
+
     return (
         <div>
             <Head>
@@ -17,7 +32,7 @@ export default function Home() {
             <main className="flex justify-center bg-white dark:bg-gray-900">
                 <Sidebar />
 
-                <Tweets />
+                <Tweets tweets={data?.tweets} />
 
                 <Assets />
             </main>

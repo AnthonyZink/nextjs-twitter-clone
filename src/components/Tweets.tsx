@@ -4,7 +4,7 @@ import Tweet from "./Tweet";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import WriteTweet from "./WriteTweet";
 
-const Tweets = () => {
+const Tweets = ({ tweets }) => {
     return (
         <div className="flex-1 dark:border-grayBorder border-r border-l max-w-xl">
             {/* Header */}
@@ -25,10 +25,9 @@ const Tweets = () => {
 
             <div className="flex">
                 <div className="flex-1">
-                    <Tweet />
-                    <Tweet />
-                    <Tweet />
-                    <Tweet />
+                    {tweets?.map((tweet) => (
+                        <Tweet tweet={tweet} />
+                    ))}
                 </div>
             </div>
         </div>
