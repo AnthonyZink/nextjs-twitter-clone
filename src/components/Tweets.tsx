@@ -6,7 +6,7 @@ import WriteTweet from "./WriteTweet";
 import { useSelector } from "react-redux";
 import WriteTweetModal from "./WriteTweetModal";
 
-const Tweets = ({ a }) => {
+const Tweets = () => {
     const tweets = useSelector((state) => state.tweets);
     const isWriteTweetOpen = useSelector((state) => state.isWriteTweetOpen);
 

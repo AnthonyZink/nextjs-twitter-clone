@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faArrowLeft,
-    faCalendar,
-    faCalendarAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import Tweet from "./Tweet";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import WriteTweetModal from "./WriteTweetModal";
 
 const Profile = () => {
+    const tweets = useSelector((state) => state.tweets);
+    const isWriteTweetOpen = useSelector((state) => state.isWriteTweetOpen);
+
     return (
         <div className="flex-1 dark:border-grayBorder border-r border-l max-w-xl">
             {/* Header */}
@@ -89,13 +90,14 @@ const Profile = () => {
                 </div>
             </div>
 
+            {isWriteTweetOpen && <WriteTweetModal />}
+
             {/* Tweets */}
             <div className="flex">
                 <div className="flex-1">
-                    <Tweet />
-                    <Tweet />
-                    <Tweet />
-                    <Tweet />
+                    {tweets?.map((tweet) => (
+                        <Tweet key={tweet.id} tweet={tweet} />
+                    ))}
                 </div>
             </div>
         </div>

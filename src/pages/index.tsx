@@ -38,7 +38,7 @@ const Home = () => {
             <main className="flex justify-center bg-white dark:bg-black">
                 <Sidebar />
 
-                <Tweets tweets={data?.tweets} />
+                <Tweets />
 
                 <Assets />
             </main>
