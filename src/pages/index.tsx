@@ -3,23 +3,30 @@ import Sidebar from "../components/Sidebar";
 import Tweets from "../components/Tweets";
 import Assets from "../components/Assets";
 import { gql, useQuery } from "@apollo/client";
+import { useDispatch } from "react-redux";
 
-export default function Home() {
-    const query = gql`
-        query TweetsQuery {
-            tweets {
-                id
-                content
-                user {
-                    twitterId
-                    username
-                }
-                createdAt
+const query = gql`
+    query TweetsQuery {
+        tweets {
+            id
+            content
+            user {
+                twitterId
+                username
             }
+            createdAt
         }
-    `;
+    }
+`;
 
+const Home = () => {
     const { data, loading, error } = useQuery(query);
+
+    const dispatch = useDispatch();
+    dispatch({
+        type: "INIT_TWEETS",
+        data: data?.tweets,
+    });
 
     return (
         <div>
@@ -28,7 +35,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className="flex justify-center bg-white dark:bg-gray-900">
+            <main className="flex justify-center bg-white dark:bg-black">
                 <Sidebar />
 
                 <Tweets tweets={data?.tweets} />
@@ -37,4 +44,6 @@ export default function Home() {
             </main>
         </div>
     );
-}
+};
+
+export default Home;

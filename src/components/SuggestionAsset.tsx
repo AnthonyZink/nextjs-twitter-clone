@@ -1,6 +1,6 @@
 const SuggestionAsset = () => {
     return (
-        <div className="py-3 px-4 border-b dark:border-grayBorder flex items-center space-x-3 dark:hover:bg-gray-900 dark:hover:bg-opacity-10 hover:bg-gray-200 cursor-pointer transition duration-150 ease-out">
+        <div className="py-3 px-4 border-b dark:border-grayBorder flex items-center space-x-3 dark:hover:bg-gray-700 dark:hover:bg-opacity-10 hover:bg-gray-200 cursor-pointer transition duration-150 ease-out">
             <img
                 src="https://pbs.twimg.com/profile_images/1204432464053231616/ewCSVa0O_normal.jpg"
                 className="rounded-full"

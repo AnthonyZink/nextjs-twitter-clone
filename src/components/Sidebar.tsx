@@ -2,8 +2,17 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEllipsisH, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from "./Menu";
+import { useDispatch } from "react-redux";
 
 const Sidebar = () => {
+    const dispatch = useDispatch();
+
+    const openTweetModal = () => {
+        dispatch({
+            type: "OPEN_WRITE_TWEET_MODAL",
+        });
+    };
+
     return (
         <div className="h-screen sticky top-0  flex justify-end max-w-60 ">
             <div className=" h-full px-4 py-2 flex flex-col justify-between items-center">
@@ -16,7 +25,10 @@ const Sidebar = () => {
                     </div>
                     <Menu />
 
-                    <div className="cursor-pointer transition-colors duration-150 ease-out hidden xl:block bg-blue-400 hover:bg-blue-500 capitalize font-bold text-white py-3 rounded-full text-center">
+                    <div
+                        onClick={openTweetModal}
+                        className="cursor-pointer transition-colors duration-150 ease-out hidden xl:block bg-blue-400 hover:bg-blue-500 capitalize font-bold text-white py-3 rounded-full text-center"
+                    >
                         tweet
                     </div>
 

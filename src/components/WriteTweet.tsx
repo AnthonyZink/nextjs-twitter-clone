@@ -11,8 +11,11 @@ import { useState } from "react";
 import classNames from "classnames";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
+import { useDispatch } from "react-redux";
 
-export default function WriteTweet({ addTweetParent }) {
+export default function WriteTweet() {
+    const dispatch = useDispatch();
+
     const [charactersValue, setCharactersValue] = useState("0");
     const [tweetButtonDisabled, setTweetButtonDisabled] = useState(true);
     const [tweetContent, setTweetContent] = useState("");
@@ -40,7 +43,14 @@ export default function WriteTweet({ addTweetParent }) {
                 userId: "b98fe261-30e1-4f16-b741-efe55923404e",
             },
         });
-        addTweetParent(tweet.data.addTweet);
+
+        dispatch({
+            type: "ADD_TWEET",
+            data: tweet.data.addTweet,
+        });
+        dispatch({
+            type: "CLOSE_WRITE_TWEET_MODAL",
+        });
 
         setTweetContent("");
         setTweetButtonDisabled(true);
@@ -91,7 +101,7 @@ export default function WriteTweet({ addTweetParent }) {
                         onChange={handleChange}
                         value={tweetContent}
                         placeholder="Quoi de neuf ?"
-                        className="w-full dark:bg-gray-900 resize-none overflow-hidden text-xl placeholder-gray-500 py-2 outline-none h-auto"
+                        className="w-full dark:bg-black resize-none overflow-hidden text-xl placeholder-gray-500 py-2 outline-none h-auto"
                     ></textarea>
                     <div className="border-b dark:border-grayBorder w-full">
                         <div className="text-blue-400 inline-flex text-sm space-x-2 font-semibold pb-3 cursor-pointer">
